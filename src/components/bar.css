@@ -1,0 +1,9 @@
+li {
+    float: left;
+  }
+  
+  a {
+    display: block;
+    padding: 6px;
+    background-color: #9ac7e1e1;
+  }
