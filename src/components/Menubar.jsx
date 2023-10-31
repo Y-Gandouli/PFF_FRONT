@@ -22,7 +22,7 @@ function Menubar (){
       </a>
       <ul className={active}>
         <li className="nav__item">
-          <a href="#" className="nav__link">
+          <a href="/Client.js" className="nav__link">
             Clients Management
           </a>
         </li>
