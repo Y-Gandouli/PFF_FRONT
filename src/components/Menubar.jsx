@@ -17,35 +17,25 @@ function Menubar (){
   };
   return (
     <nav className="nav">
-      <a href="../index.js" className="nav__brand">
+      <a href="/home" className="nav__brand">
         PFF App
       </a>
       <ul className={active}>
         <li className="nav__item">
-          <a href="/Client.js" className="nav__link">
+          <a href="/Clients" className="nav__link">
             Clients Management
           </a>
         </li>
         <li className="nav__item">
-          <a href="#" className="nav__link">
+          <a href="/filesup" className="nav__link">
             Files Upload
           </a>
         </li>
         
-    {/*   <li className="nav__item">
-          <a href="#" className="nav__link">
-            Portfolio
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Skills
-          </a>
-        </li> 
-    */}
+    
         <pre>                                                             </pre>
         <li className="nav__item">
-          <a href="#" className="nav__link">
+          <a href="/contact" className="nav__link">
             Contact
           </a>
         </li>
