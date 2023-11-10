@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { /*useEffect,*/ useState } from "react";
 //mport axios from "axios";
 
 function Client() {
-  const [clients, setClients] = useState([]);
+  const [clients /*,setClients*/] = useState([]);
   /*
   useEffect(() => {
     // Fetch the list of clients from your API endpoint when the component mounts
