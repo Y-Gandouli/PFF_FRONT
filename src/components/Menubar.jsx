@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import './bar.css';
+import "./bar.css";
 
-function Menubar (){
-    
-    const [active, setActive] = useState("nav__menu");
+function Menubar() {
+  const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
   const navToggle = () => {
     if (active === "nav__menu") {
@@ -17,23 +16,22 @@ function Menubar (){
   };
   return (
     <nav className="nav">
-      <a href="/home" className="nav__brand">
+      <a href="/" className="nav__brand">
         PFF App
       </a>
       <ul className={active}>
         <li className="nav__item">
-          <a href="/Clients" className="nav__link">
+          <a href="/clientsManagement" className="nav__link">
             Clients Management
           </a>
         </li>
         <li className="nav__item">
-          <a href="/filesup" className="nav__link">
+          <a href="/filesUpload" className="nav__link">
             Files Upload
           </a>
         </li>
-        
-    
-        <pre>                                                             </pre>
+
+        <pre> </pre>
         <li className="nav__item">
           <a href="/contact" className="nav__link">
             Contact
