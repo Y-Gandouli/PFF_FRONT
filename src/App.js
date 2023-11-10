@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Client from "./components/Client";
 import Home from "./components/Home";
 import FilesUpload from "./components/FilesUpload";
-const port = /*process.env.port ||*/ 8080;
+
 function App() {
    
   return (
