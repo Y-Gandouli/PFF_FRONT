@@ -21,13 +21,14 @@ function Client() {
 
   return (
     <div>
-      <h2>Clients</h2>
-
+      <h2>Clients list</h2>
+      <br />
       <table>
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>phone</th>
           </tr>
         </thead>
         <tbody>
