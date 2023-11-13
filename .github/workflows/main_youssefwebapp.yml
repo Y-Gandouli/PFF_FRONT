@@ -28,7 +28,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: 
+        run: |
           cd build
           zip -r ../release.zip * 
 
