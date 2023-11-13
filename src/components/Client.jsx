@@ -1,8 +1,12 @@
 import React, { /*useEffect,*/ useState } from "react";
+import "./bar.css";
 //mport axios from "axios";
 
 function Client() {
-  const [clients /*,setClients*/] = useState([]);
+  // const [clients /*,setClients*/] = useState([]);
+  const clients = [
+    { id: 1, name: "Youssef", email: "youssef@gmail.com", phone: "057463332" },
+  ];
   /*
   useEffect(() => {
     // Fetch the list of clients from your API endpoint when the component mounts
@@ -36,6 +40,7 @@ function Client() {
             <tr key={client.id}>
               <td>{client.name}</td>
               <td>{client.email}</td>
+              <td>{client.phone}</td>
             </tr>
           ))}
         </tbody>
