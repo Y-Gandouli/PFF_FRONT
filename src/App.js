@@ -5,12 +5,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Client from "./components/Client";
 import Home from "./components/Home";
 import FilesUpload from "./components/FilesUpload";
+<<<<<<< HEAD
 import Contact from "./components/contact";
+=======
+import { CssBaseline } from "@mui/material";
+>>>>>>> 6b52924 (add material UI package)
 
 function App() {
-   
   return (
     <div>
+      <CssBaseline />
       <Menubar />
       <BrowserRouter>
         <Routes>
