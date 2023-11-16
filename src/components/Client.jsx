@@ -81,17 +81,6 @@ function Client() {
     }).then((clients) => {
       setClients(clients);
     });
-    // fetch("http://localhost:9001/userManagement", {
-    //   method: "GET",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setClients(data);
-    //   })
-    //   .catch((error) => console.error("Error fetching data:", error));
   }, []);
   const handleSelectionModelChange = (selectionModel) => {
     console.log("Sélection des lignes a changé :", selectionModel);
@@ -122,21 +111,6 @@ function Client() {
     }).then(() => {
       window.location.reload();
     });
-    // fetch("http://localhost:9001/clientsManagement", {
-    //   method: "DELETE",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ ids: selectedRows }), // Envoyer le tableau d'IDs dans le corps de la requête
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Réponse du serveur :", data);
-    //     // Mettre à jour votre interface utilisateur après la suppression réussie si nécessaire
-    //   })
-    //   .catch((error) => {
-    //     console.error("Erreur lors de la suppression :", error);
-    //   });
   };
 
   return (
