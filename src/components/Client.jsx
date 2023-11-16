@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { customFetch } from "../utilities/fetch";
+import { Await } from "react-router-dom";
 
 const inputs = ["name", "email", "phone"];
 const clientsData = [
@@ -60,52 +62,81 @@ function Client() {
   const [data, setData] = useState({});
   const [selectedRows, setSelectedRows] = useState([]);
   const [isUpdating, setIsUpdating] = useState(false);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:9001/clientsManagement", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Réponse du serveur:", data);
-      })
-      .catch((error) => {
-        console.error("Error fetching clients:", error);
-      });
 
-    window.location.reload();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await customFetch({
+      path: "http://localhost:9001/clientsManagement",
+      method: "POST",
+      bodyData: data,
+    }).then((data) => {
+      console.log(data);
+      window.location.reload();
+    });
   };
   useEffect(() => {
-    fetch("http://localhost:9001/userManagement", {
+    customFetch({
+      path: "http://localhost:9001/clientsManagement",
       method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setClients(data);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+    }).then((clients) => {
+      setClients(clients);
+    });
+    // fetch("http://localhost:9001/userManagement", {
+    //   method: "GET",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setClients(data);
+    //   })
+    //   .catch((error) => console.error("Error fetching data:", error));
   }, []);
   const handleSelectionModelChange = (selectionModel) => {
     console.log("Sélection des lignes a changé :", selectionModel);
-    setSelectedRows(selectionModel);
-    const selectedData = clientsData.filter((row) =>
+    setSelectedRows([selectionModel]);
+    console.log(selectedRows);
+    const selectedData = clients.filter((row) =>
       selectionModel.includes(row.id)
     );
     if (selectionModel.length !== 0) {
+      console.log(data);
       setData(selectedData[0]);
       setIsUpdating(true);
     } else {
+      console.log(data);
       setData({ id: "", name: "", email: "", phone: "" });
       setIsUpdating(false);
     }
     console.log("Données des lignes sélectionnées :", selectedData);
+  };
+
+  const handleDelete = async (e) => {
+    console.log(JSON.stringify({ ids: selectedRows }));
+
+    customFetch({
+      path: "http://localhost:9001/clientsManagement",
+      method: "DELETE",
+      bodyData: { ids: selectedRows },
+    }).then(() => {
+      window.location.reload();
+    });
+    // fetch("http://localhost:9001/clientsManagement", {
+    //   method: "DELETE",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ ids: selectedRows }), // Envoyer le tableau d'IDs dans le corps de la requête
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Réponse du serveur :", data);
+    //     // Mettre à jour votre interface utilisateur après la suppression réussie si nécessaire
+    //   })
+    //   .catch((error) => {
+    //     console.error("Erreur lors de la suppression :", error);
+    //   });
   };
 
   return (
@@ -114,7 +145,7 @@ function Client() {
       <div className="flexRow" style={{ width: "50%" }}>
         <Box sx={{ height: 400, width: "100%" }}>
           <DataGrid
-            rows={clientsData}
+            rows={clients}
             columns={columns}
             initialState={{
               pagination: {
@@ -123,6 +154,7 @@ function Client() {
                 },
               },
             }}
+            editMode={false}
             pageSizeOptions={[5]}
             checkboxSelection
             onRowSelectionModelChange={handleSelectionModelChange}
@@ -154,7 +186,7 @@ function Client() {
 
           {isUpdating ? (
             <>
-              <Button variant="contained" type="submit">
+              <Button variant="contained" onClick={handleDelete}>
                 Delete client
               </Button>
               <Button variant="contained" type="submit">
