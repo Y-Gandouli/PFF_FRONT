@@ -1,6 +1,6 @@
 import React, { /*useEffect,*/ useState } from "react";
 import "./bar.css";
-//mport axios from "axios";
+//import axios from "axios";
 
 function Client() {
   // const [clients /*,setClients*/] = useState([]);
