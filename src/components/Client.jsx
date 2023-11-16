@@ -70,7 +70,6 @@ function Client() {
       method: "POST",
       bodyData: data,
     }).then((data) => {
-      console.log(data);
       window.location.reload();
     });
   };
@@ -108,6 +107,17 @@ function Client() {
       path: "http://localhost:9001/clientsManagement",
       method: "DELETE",
       bodyData: { ids: selectedRows },
+    }).then(() => {
+      window.location.reload();
+    });
+  };
+  const handleUpdate = async (e) => {
+    console.log(JSON.stringify(selectedRows[0]));
+
+    customFetch({
+      path: `http://localhost:9001/clientsManagement/${selectedRows[0]}`,
+      method: "PUT",
+      bodyData: data,
     }).then(() => {
       window.location.reload();
     });
@@ -163,7 +173,7 @@ function Client() {
               <Button variant="contained" onClick={handleDelete}>
                 Delete client
               </Button>
-              <Button variant="contained" type="submit">
+              <Button variant="contained" onClick={handleUpdate}>
                 Update client
               </Button>
             </>
