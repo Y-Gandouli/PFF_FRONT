@@ -66,7 +66,7 @@ function Client() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     customFetch({
-      path: "http://localhost:3000/clientsManagement",
+      path: "http://52.154.77.66:3000/clientsManagement",
       method: "POST",
       bodyData: data,
     }).then((data) => {
@@ -75,7 +75,7 @@ function Client() {
   };
   useEffect(() => {
     customFetch({
-      path: "http://localhost:3000/clientsManagement",
+      path: "http://52.154.77.66:3000/clientsManagement",
       method: "GET",
     }).then((clients) => {
       setClients(clients);
@@ -104,7 +104,7 @@ function Client() {
     console.log(JSON.stringify({ ids: selectedRows }));
 
     customFetch({
-      path: "http://localhost:3000/clientsManagement",
+      path: "http://52.154.77.66:3000/clientsManagement",
       method: "DELETE",
       bodyData: { ids: selectedRows },
     }).then(() => {
@@ -115,7 +115,7 @@ function Client() {
     console.log(JSON.stringify(selectedRows[0]));
 
     customFetch({
-      path: `http://localhost:3000/clientsManagement/${selectedRows[0]}`,
+      path: `http://52.154.77.66:3000/clientsManagement/${selectedRows[0]}`,
       method: "PUT",
       bodyData: data,
     }).then(() => {
