@@ -8,7 +8,7 @@ const app = express();
 const port = 3002;
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const staticFiles = path.join(__dirname, "client/build");
+const staticFiles = path.join(__dirname, "build");
 const uploadPath = path.join(__dirname, "uploads/files");
 
 app.use(cors());
@@ -17,7 +17,7 @@ app.use(express.static(staticFiles));
 
 //Route pour servir l'application React
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
 // Configuration du stockage des fichiers avec Multer
