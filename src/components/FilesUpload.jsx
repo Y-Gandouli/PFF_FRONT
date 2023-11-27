@@ -15,7 +15,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useEffect } from "react";
-import { customFetch } from "../utilities/fetch";
+import { customFetch } from "../utilities/customFetch";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -52,7 +52,7 @@ function FilesUpload() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await fetch("http://localhost:3000/filesUpload", {
+      const response = fetch("http://localhost:3000/filesUpload", {
         method: "POST",
         body: formData,
       });
