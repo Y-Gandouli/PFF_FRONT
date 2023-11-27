@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { customFetch } from "../utilities/fetch";
-import { Await } from "react-router-dom";
+import { customFetch } from "../utilities/customFetch";
+//import { Await } from "react-router-dom";
 
 const inputs = ["name", "email", "phone"];
 const clientsData = [
