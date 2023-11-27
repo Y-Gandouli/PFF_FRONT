@@ -25,7 +25,7 @@
   "scripts": {
     "start": "set port = 8080 && react-scripts start",
     "test": "react-scripts test --passWithNoTests",
-    "build": "CI=false && react-scripts build",
+    "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
