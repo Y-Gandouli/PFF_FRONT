@@ -6,7 +6,7 @@
   "main": "uploadServer.js",
   "scripts": {
     "test": "react-scripts test --passWithNoTests",
-    "build":"cd client && react-scripts build"
+    "build":"cd client && CI=false && react-scripts build"
   },
   "author": "",
   "license": "ISC",
