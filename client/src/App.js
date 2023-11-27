@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import Menubar from "./components/Menubar";
+import Menubar from "./components/Menubar.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Client from "./components/Client";
-import Home from "./components/Home";
-import FilesUpload from "./components/FilesUpload";
+import Client from "./components/Client.jsx";
+import Home from "./components/Home.jsx";
+import FilesUpload from "./components/FilesUpload.jsx";
 
-import Contact from "./components/contact";
+import Contact from "./components/contact.jsx";
 
 import { CssBaseline } from "@mui/material";
 

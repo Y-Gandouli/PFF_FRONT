@@ -34,12 +34,17 @@ function FilesUpload() {
   const [fileNames, setFileNames] = useState(null);
 
   useEffect(() => {
-    customFetch({
-      path: "http://localhost:3000/filesUpload",
+    fetch("http://localhost:3002/fileNames", {
       method: "GET",
-    }).then((fileNames) => {
-      setFileNames(fileNames);
-    });
+    })
+      .then((r) => {
+        console.log(r);
+        return r.json(); // Retournez la promesse r.json()
+      })
+      .then((fileNames) => {
+        console.log(fileNames);
+        setFileNames(fileNames);
+      });
   }, []);
 
   const onChangeHandler = (event) => {
@@ -52,7 +57,7 @@ function FilesUpload() {
     formData.append("file", selectedFile);
 
     try {
-      const response = fetch("http://localhost:3000/filesUpload", {
+      const response = await fetch("http://localhost:3002/filesUpload", {
         method: "POST",
         body: formData,
       });
